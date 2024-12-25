@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Interactive JavaScript Array Operations Demo">
+    <meta name="keywords" content="JavaScript, Arrays, Data Structures, Interactive Learning">
+    <meta name="author" content="Your Name">
+    <title>Advanced Array Operations | Interactive Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="main-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="branding">
+                        <h1><i class="fas fa-code"></i> Array Master</h1>
+                    </div>
+                    
+                    <div class="stats-panel">
+                        <div class="stat-card">
+                            <i class="fas fa-calculator"></i>
+                            <div class="stat-content">
+                                <span id="totalOperations">0</span>
+                                <span class="stat-label">Operations</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-layer-group"></i>
+                            <div class="stat-content">
+                                <span id="arraySize">0</span>
+                                <span class="stat-label">Elements</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-history"></i>
+                            <div class="stat-content">
+                                <span id="lastOperation">None</span>
+                                <span class="stat-label">Last Op</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <div class="stat-content">
+                                <span id="sessionTime">0:00</span>
+                                <span class="stat-label">Time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch">
+                        <span class="visually-hidden">Toggle Dark Theme</span>
+                        <input type="checkbox" 
+                               id="themeToggle" 
+                               name="themeToggle"
+                               aria-label="Toggle dark theme">
+                        <div class="slider" role="switch" aria-checked="false"></div>
+                    </label>
+                </div>
+            </div>
+            
+            <nav class="main-nav" role="navigation">
+                <button class="nav-btn active" data-section="task1">
+                    <i class="fas fa-list"></i>
+                    Array Management
+                </button>
+                <button class="nav-btn" data-section="task2">
+                    <i class="fas fa-sort-numeric-down"></i>
+                    Number Operations
+                </button>
+                <button class="nav-btn" data-section="task3">
+                    <i class="fas fa-magic"></i>
+                    Transformations
+                </button>
+                <button class="nav-btn" data-section="task4">
+                    <i class="fas fa-chart-line"></i>
+                    Analytics
+                </button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="demo-section active" id="task1">
+                <div class="section-header">
+                    <h2><i class="fas fa-list"></i> Array Management</h2>
+                </div>
+                
+                <div class="array-container">
+                    <div class="array-visualization">
+                        <h3>
+                            Current Array
+                            <span class="array-info">0 items</span>
+                        </h3>
+                        <div class="array-display">
+                            <div class="empty-state">Add items to get started</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-container">
+                    <div class="control-panel">
+                        <h3>Add Items</h3>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <label>
+                                    Add Item
+                                    <input type="text" 
+                                           id="addItemInput" 
+                                           name="addItemInput"
+                                           placeholder="Enter a fruit name">
+                                </label>
+                                <span class="input-hint" id="addItemHint">e.g. Apple</span>
+                            </div>
+                            <button class="primary-btn" 
+                                    id="addItemBtn" 
+                                    aria-describedby="addItemHint">
+                                <i class="fas fa-plus"></i>
+                                Add
+                            </button>
+                        </div>
+                        <div class="button-group">
+                            <button class="secondary-btn" id="addRandomBtn">
+                                <i class="fas fa-random"></i>
+                                Add Random
+                            </button>
+                            <button class="danger-btn" id="clearArrayBtn">
+                                <i class="fas fa-trash"></i>
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-panel">
+                        <h3>Modify Array</h3>
+                        <div class="button-group">
+                            <button class="secondary-btn" id="sortAscBtn">
+                                <i class="fas fa-sort-alpha-down"></i>
+                                Sort A-Z
+                            </button>
+                            <button class="secondary-btn" id="sortDescBtn">
+                                <i class="fas fa-sort-alpha-up"></i>
+                                Sort Z-A
+                            </button>
+                            <button class="secondary-btn" id="reverseBtn">
+                                <i class="fas fa-exchange-alt"></i>
+                                Reverse
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="demo-section" id="task2">
+                <div class="section-header">
+                    <h2><i class="fas fa-sort-numeric-down"></i> Number Operations</h2>
+                </div>
+                
+                <div class="array-container">
+                    <div class="array-visualization">
+                        <h3>
+                            Number Array
+                            <span class="array-info">0 items</span>
+                        </h3>
+                        <div class="array-display">
+                            <div class="empty-state">Add numbers to get started</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-container">
+                    <div class="control-panel">
+                        <h3>Add Numbers</h3>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <label>
+                                    Add Number
+                                    <input type="number" 
+                                           id="addNumberInput" 
+                                           name="addNumberInput"
+                                           placeholder="Enter a number">
+                                </label>
+                                <span class="input-hint" id="addNumberHint">e.g. 42</span>
+                            </div>
+                            <button class="primary-btn" 
+                                    id="addNumberBtn"
+                                    aria-describedby="addNumberHint">
+                                <i class="fas fa-plus"></i>
+                                Add
+                            </button>
+                        </div>
+                        <div class="button-group">
+                            <button class="secondary-btn" id="addRandomNumberBtn">
+                                <i class="fas fa-dice"></i>
+                                Random Number
+                            </button>
+                            <button class="danger-btn" id="clearNumbersBtn">
+                                <i class="fas fa-trash"></i>
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-panel">
+                        <h3>Array Operations</h3>
+                        <div class="button-group">
+                            <button class="secondary-btn" id="sumBtn">
+                                <i class="fas fa-plus-circle"></i>
+                                Sum
+                            </button>
+                            <button class="secondary-btn" id="averageBtn">
+                                <i class="fas fa-calculator"></i>
+                                Average
+                            </button>
+                            <button class="secondary-btn" id="maxBtn">
+                                <i class="fas fa-arrow-up"></i>
+                                Max
+                            </button>
+                            <button class="secondary-btn" id="minBtn">
+                                <i class="fas fa-arrow-down"></i>
+                                Min
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualization-panel">
+                    <h3>Number Distribution</h3>
+                    <div class="bar-chart" id="numberChart"></div>
+                </div>
+            </section>
+
+            <section class="demo-section" id="task3">
+                <div class="section-header">
+                    <h2><i class="fas fa-magic"></i> Transformations</h2>
+                </div>
+                
+                <div class="array-container">
+                    <div class="array-visualization">
+                        <h3>Original Array</h3>
+                        <div class="array-display" id="originalArray">
+                            <div class="empty-state">Add items to transform</div>
+                        </div>
+                    </div>
+                    
+                    <div class="array-visualization">
+                        <h3>Transformed Array</h3>
+                        <div class="array-display" id="transformedArray">
+                            <div class="empty-state">Apply transformation to see results</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-container">
+                    <div class="control-panel">
+                        <h3>Transform Items</h3>
+                        <div class="button-group">
+                            <button class="secondary-btn" id="upperCaseBtn">
+                                <i class="fas fa-font"></i>
+                                To Uppercase
+                            </button>
+                            <button class="secondary-btn" id="lowerCaseBtn">
+                                <i class="fas fa-text-height"></i>
+                                To Lowercase
+                            </button>
+                            <button class="secondary-btn" id="capitalizeBtn">
+                                <i class="fas fa-heading"></i>
+                                Capitalize
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="demo-section" id="task4">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Analytics</h2>
+                </div>
+                
+                <div class="array-container">
+                    <div class="array-visualization">
+                        <h3>Array Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span id="totalItems">0</span>
+                                <span class="stat-label">Total Items</span>
+                            </div>
+                            <div class="stat-item">
+                                <span id="uniqueItems">0</span>
+                                <span class="stat-label">Unique Items</span>
+                            </div>
+                            <div class="stat-item">
+                                <span id="avgLength">0</span>
+                                <span class="stat-label">Average Length</span>
+                            </div>
+                            <div class="stat-item">
+                                <span id="mostCommon">-</span>
+                                <span class="stat-label">Most Common</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualization-panel">
+                    <h3>Item Distribution</h3>
+                    <div class="bar-chart" id="analyticsChart"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>Created with <i class="fas fa-heart"></i> | Array Master Demo</p>
+                    <p class="version">Version 2.0.0</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="GitHub" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Twitter" target="_blank" rel="noopener">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="shortcuts-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Keyboard Shortcuts</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="shortcuts-grid">
+                    <div class="shortcuts-section">
+                        <h3>General</h3>
+                        <ul>
+                            <li><kbd>?</kbd> Show this help</li>
+                            <li><kbd>Ctrl</kbd> + <kbd>Z</kbd> Undo</li>
+                            <li><kbd>Ctrl</kbd> + <kbd>Y</kbd> Redo</li>
+                            <li><kbd>Ctrl</kbd> + <kbd>D</kbd> Toggle theme</li>
+                        </ul>
+                    </div>
+                    <div class="shortcuts-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><kbd>1</kbd> - <kbd>4</kbd> Switch sections</li>
+                            <li><kbd>H</kbd> Toggle history</li>
+                            <li><kbd>I</kbd> Toggle info</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
