@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation in JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 String Manipulation Playground</h1>
+
+        <div class="task-card">
+            <h2>📏 Task 1: String Length</h2>
+            <div class="card-content">
+                <div class="input-group">
+                    <label for="lengthInput">Enter your text:</label>
+                    <input type="text" id="lengthInput" placeholder="Type anything here..." class="fancy-input">
+                    <button onclick="demonstrateLength()" class="action-button">Calculate Length</button>
+                </div>
+                <div class="length-display">
+                    <div id="lengthCounter" class="counter">0</div>
+                    <div class="counter-label">characters</div>
+                </div>
+                <div id="characterBreakdown" class="char-breakdown"></div>
+                <div id="lengthExplanation" class="explanation"></div>
+            </div>
+        </div>
+
+        <div class="task-card">
+            <h2>🔄 Task 2: Case Conversion</h2>
+            <div class="card-content">
+                <div class="input-group">
+                    <label for="caseInput">Enter text to transform:</label>
+                    <input type="text" id="caseInput" placeholder="Type text to convert case..." class="fancy-input">
+                    <button onclick="demonstrateCases()" class="action-button">Convert Cases</button>
+                </div>
+                <div id="caseOutput" class="case-output"></div>
+            </div>
+        </div>
+
+        <div class="task-card">
+            <h2>✂️ Task 3: Substring Extraction</h2>
+            <div class="card-content">
+                <div class="input-group">
+                    <label for="substringInput">Enter text to slice:</label>
+                    <input type="text" id="substringInput" placeholder="Enter text to extract from..." class="fancy-input">
+                    <div class="range-inputs">
+                        <div class="range-group">
+                            <label for="startIndex">Start Index:</label>
+                            <input type="number" id="startIndex" min="0" value="0" class="range-input">
+                        </div>
+                        <div class="range-group">
+                            <label for="endIndex">End Index:</label>
+                            <input type="number" id="endIndex" min="0" value="5" class="range-input">
+                        </div>
+                    </div>
+                    <button onclick="demonstrateSubstring()" class="action-button">Extract Substring</button>
+                </div>
+                <div id="substringVisual" class="substring-visual"></div>
+                <div class="result-box">
+                    Extracted: <span id="substringResult" class="highlight"></span>
+                </div>
+                <div id="substringExplanation" class="explanation"></div>
+            </div>
+        </div>
+
+        <div class="task-card">
+            <h2>🎯 Task 4: String Splitting</h2>
+            <div class="card-content">
+                <div class="input-group">
+                    <label for="splitInput">Enter text to split:</label>
+                    <input type="text" id="splitInput" placeholder="Enter text to split..." class="fancy-input">
+                    <div class="delimiter-group">
+                        <label for="delimiterInput">Delimiter (leave empty for space):</label>
+                        <input type="text" id="delimiterInput" placeholder="Space by default" class="delimiter-input">
+                    </div>
+                    <button onclick="demonstrateSplit()" class="action-button">Split String</button>
+                </div>
+                <div id="splitOutput" class="split-output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
